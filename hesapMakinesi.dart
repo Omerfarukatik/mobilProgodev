@@ -8,10 +8,19 @@ void main() {
       print("1. Toplama\n2. Çıkarma\n3. Çarpma\n4. Bölme\nq. Çıkış\n");
       print("Lütfen yapmak istediğiniz işlemi seçiniz:");
       secim = stdin.readLineSync()!;
-      if (secim != '1' && secim != '2' && secim != '3' && secim != '4' && secim != 'q') {
-        print("Hatalı seçim! Lütfen yukarıda belirtilen sayılardan birini girin.");
+      if (secim != '1' &&
+          secim != '2' &&
+          secim != '3' &&
+          secim != '4' &&
+          secim != 'q') {
+        print(
+            "Hatalı seçim! Lütfen yukarıda belirtilen sayılardan birini girin.");
       }
-    } while (secim != '1' && secim != '2' && secim != '3' && secim != '4' && secim != 'q');
+    } while (secim != '1' &&
+        secim != '2' &&
+        secim != '3' &&
+        secim != '4' &&
+        secim != 'q');
 
     if (secim == 'q') {
       print("Programdan çıkılıyor...");
@@ -27,7 +36,7 @@ void main() {
       sayi2 = double.parse(stdin.readLineSync()!);
     } catch (e) {
       print("Hata: Geçersiz sayı girişi! Lütfen sayıları tekrar girin.");
-      continue; 
+      continue;
     }
 
     switch (secim) {
@@ -35,17 +44,17 @@ void main() {
         topla(a: sayi1, b: sayi2);
         break;
       case '2':
-        cikarma(ilkSayi: sayi1, ikinciSayi: sayi2); // Parametreleri doğru şekilde belirt
+        cikarma(ilkSayi: sayi1, ikinciSayi: sayi2);
         break;
       case '3':
-        carpma(sayi1: sayi1, sayi2: sayi2); // Parametreleri doğru şekilde belirt
+        carpma(sayi1: sayi1, sayi2: sayi2);
         break;
       case '4':
         try {
           if (sayi2 == 0) {
             throw "tanımsız";
           }
-          bolme(sayi1,sayi2); // Hata kontrolü fonksiyon çağrısının içinde olmalı
+          bolme(sayi1, sayi2);
         } catch (e) {
           print("Hata: ${e}");
         }
@@ -63,17 +72,17 @@ void topla({required double a, double? b}) {
   print("$a + ${b ?? 0} = ${sonuc}");
 }
 
-void cikarma({required double ikinciSayi,required double ilkSayi}) {
+void cikarma({required double ikinciSayi, required double ilkSayi}) {
   double sonuc = ilkSayi - ikinciSayi;
   print("$ilkSayi - $ikinciSayi = ${sonuc}");
 }
 
-void carpma({required double sayi1,double sayi2 = 1}) {
+void carpma({required double sayi1, double sayi2 = 1}) {
   double sonuc = sayi1 * sayi2;
   print("$sayi1 * $sayi2 = ${sonuc}");
 }
 
-void bolme(double bolunen,double bolum) {
+void bolme(double bolunen, double bolum) {
   double sonuc = bolunen / bolum;
   print("$bolunen / $bolum = ${sonuc}");
 }
